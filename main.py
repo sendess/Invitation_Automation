@@ -15,7 +15,7 @@ def QR_generate(dat):
     qr.make(fit=True)
     img = qr.make_image(fill_color="black", back_color="white")
     resized_img = img.resize((245, 245))
-    file_name = str(dat + "QR.png")
+    file_name = str("QR_Codes" + "\\" + dat + "QR.png")
     resized_img.save(file_name)
     print("QR code saved as my_qrcode.png with resolution 980x980.")
 
@@ -23,8 +23,8 @@ def insert_QRnName_in_card(image_file, company_name , output_path):
     QR_generate(company_name)  # Generate QR code with the company name
     try:
         invitation_img = Image.open(image_file)
-        qr_code_img = Image.open(str(company_name + "QR.png"))
-        flag_img = Image.open("flag_2.png")
+        qr_code_img = Image.open(str("QR_Codes\\" + company_name + "QR.png"))
+        flag_img = Image.open(r"flag-assets\flag_2.png")
         flag_img = flag_img.resize((57,70))
         position = (297, 54)
         position_flag = (410,134)
@@ -60,9 +60,9 @@ def insert_QRnName_in_card(image_file, company_name , output_path):
 
 
 if __name__ == "__main__":
-    company = "Ram"
     image_file = "invitation.png"
-    output_name = str(company + ".png")
 
-
-    insert_QRnName_in_card(image_file, company , output_name)
+    list_of_names = ["Mr. Naresh Khapangi", "Ms. Janaki Rijal", "Mr. Ram Bahadur", "Mr. Ram Chandra", "Mr. Ram Kumar"]
+    for name in list_of_names:
+        output_name = str("Cards\\" + name + ".png")
+        insert_QRnName_in_card(image_file, name , output_name)
