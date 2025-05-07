@@ -1,6 +1,7 @@
 import qrcode
 from PIL import Image
 from PIL import Image, ImageDraw, ImageFont
+import csv
 
 
 def QR_generate(dat):
@@ -61,6 +62,7 @@ def insert_QRnName_in_card(image_file, company_name , output_path):
 
 if __name__ == "__main__":
     image_file = "invitation.png"
+
 
     list_of_names = ["Mr. Naresh Khapangi", "Ms. Janaki Rijal", "Mr. Ram Bahadur", "Mr. Ram Chandra", "Mr. Ram Kumar"]
     for name in list_of_names:

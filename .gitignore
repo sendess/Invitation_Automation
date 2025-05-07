@@ -1,2 +1,6 @@
 /venv
 *.ttf
+/cards/*.png
+/QR_Codes/*.png
+*.xlsx
+*.csv
